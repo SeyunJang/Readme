@@ -78,24 +78,53 @@ Follow one of the instructions below that suits your desired task.
 - Visit https://web-staging.send-anywhere.com/web/outlook/ for staging environment
 
 ## Build
-
 - Run `pnpm build` to build in production mode.
 - Run `pnpm build:dev` to build in development mode.
 
 ## Deployment
+Please refer to github actions in root `.github/workflows/**`
 
-- To be updated (push to release,,)
-- Please refer to .yml files at /.github/workflows
+### AWS Architecture
+The diagram displays an overview of the AWS architecture. The files of ReactJS SPA web application are hosted in an S3 bucket, which is accessed by Cloudfront.
+
+```mermaid
+
+stateDiagram-v2
+
+  direction LR
+
+  AWS_CF: AWS CloudFront
+  AWSS3: AWS S3
+  Edge_Loc: Edge Location
+
+    Browser --> AWS_CF
+    state AWS_CF {
+      Edge_Loc --> Bucket
+    }
+    state AWSS3 {
+      Bucket
+    }
+```
+
+### Deployment Scripts
+
+Refer to github actions in root `.github/workflows/**`
+
+#### Project Actions
+
+- `develop.yml` **develop** branch default workflow
+- `staging.yml` **staging** branch default workflow
+- `production.yml` **production** branch default workflow
+- `deployment.yml` **develop** branch deployment workflow
+- `build.yml` default build workflow
+
 
 ## Notes
-
 - According to [Outlook Add-in Docs](https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/outlook-quickstart?tabs=yeomangenerator), Office Add-ins should use HTTPS, not HTTP, even while you're developing. So please make sure that you're using **HTTPS** protocol, not HTTP. Otherwise, you will not be able to test the add-in.
     - Please refer to `./webpack.config.js` for https configuration in development environment.
 
 - Every feature of send-anywhere Outlook add-in works properly inside Outlook web/desktop application.
-
     - If only the react app is tested in web browser, it will not work properly.
-
     - For example, if you visit https://send-anywhere.com/web/outlook/ in web browser, social login will not work.
 
 - Adding add-ins to Outlook web application seems to be not supported as of now.
@@ -104,7 +133,4 @@ Follow one of the instructions below that suits your desired task.
 - [Using add-ins in Outlook on the web](https://support.microsoft.com/en-us/office/using-add-ins-in-outlook-on-the-web-8f2ce816-5df4-44a5-958c-f7f9d6dabdce)
 - [Sideload Office Add-ins in Office on the web for testing](https://docs.microsoft.com/en-us/office/dev/add-ins/testing/sideload-office-add-ins-for-testing)
 - [Sideload Office Add-ins on Mac](https://learn.microsoft.com/en-us/office/dev/add-ins/testing/sideload-an-office-add-in-on-mac)
-
-## TODO
-
-- generate scripts that can automatically upload manifest file to Outlook desktop application, or just simply open Outlook desktop app.
+- [office-addin-debugging](https://www.npmjs.com/package/office-addin-debugging)
