@@ -19,7 +19,6 @@
         | Staging-Biz    | /manifest/manifest-staging-biz.xml     |
 
     ### Upload add-ins to desktop application
-    
     1. Open your Outlook Desktop Application
     3. Click `···` button on the top menu bar
     4. Click `Get Add-ins` button
@@ -27,9 +26,8 @@
     6. Scroll down to click `+ Add to Outlook` button
         - Click `Add from File...` button
     7. Upload `manifest*.xml` file corresponding to desired environment. This is specified in [Prerequisites](#prerequisites).
-      
+          
     ### Upload add-ins to web application
-    
     1. In your preferred browser, go to https://aka.ms/olksideload to open the Add-Ins for Outlook dialog
     2. Select `My add-ins`
     3. In the Custom Addins section, select Add a custom add-in, then choose `Add from file`
