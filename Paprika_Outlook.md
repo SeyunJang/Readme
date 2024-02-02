@@ -72,8 +72,8 @@ Follow one of the instructions below that suits your desired task.
 - If you satisfied prerequisites and custom add-in is successfully added, you can see `Test(or Staging) Send Anywhere` button on clicking `···` button on the top menu bar when writing an email
 
 ###     **To test React.js app in web browser**
-- Visit https://test.send-anywhere.com/web/outlook/ for test environment
-- Visit https://web-staging.send-anywhere.com/web/outlook/ for staging environment
+- Visit https://office365.test.send-anywhere.com/web/outlook/ for test environment
+- Visit https://office365.web-staging.send-anywhere.com/web/outlook/ for staging environment
 
 ## Build
 - Run `pnpm build` to build in production mode.
