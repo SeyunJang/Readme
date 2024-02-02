@@ -3,74 +3,102 @@
 > Send Anywhere Add-in for Office 365 Outlook
 
 ## Prerequisites
-
 - Node version: 18.18.2, if not installed, run nvm install 18.18.2
-- run `npm install` after cloning this repository
+- This project uses [pnpm](https://pnpm.io/). If not installed, run npm install -g pnpm
+- Custom add-ins uploaded to web and desktop applications. 
+    - To upload add-ins, please refer to [Upload add-ins to desktop application](#upload-add-ins-to-desktop-application) and [Upload add-ins to web application](#upload-add-ins-to-web-application) below
+    - Different files need to be uploaded for each desired environment. See table below.
+      
+  
+        | Desired Environment | manifest.xml file to be uploaded |
+        | -------- | -------- |
+        | Local Development    | /manifest.xml     |
+        | Test    | /manifest/manifest-test.xml     |
+        | Test-Biz    | /manifest/manifest-test-biz.xml     |
+        | Staging    | /manifest/manifest-staging.xml     |
+        | Staging-Biz    | /manifest/manifest-staging-biz.xml     |
+
+    ### Upload add-ins to desktop application
+    
+    1. Open your Outlook Desktop Application
+    3. Click `···` button on the top menu bar
+    4. Click `Get Add-ins` button
+    5. Click `My Add-ins` button on the left side menu
+    6. Scroll down to click `+ Add to Outlook` button
+        - Click `Add from File...` button
+    7. Upload `manifest*.xml` file corresponding to desired environment. This is specified in [Prerequisites](#prerequisites).
+      
+    ### Upload add-ins to web application
+    
+    1. In your preferred browser, go to https://aka.ms/olksideload to open the Add-Ins for Outlook dialog
+    2. Select `My add-ins`
+    3. In the Custom Addins section, select Add a custom add-in, then choose `Add from file`
+    4. Upload `manifest*.xml` file corresponding to desired environment. This is specified in [Prerequisites](#prerequisites).
+    
+    For details, please refer to [Using add-ins in Outlook on the web](https://support.microsoft.com/en-us/office/using-add-ins-in-outlook-on-the-web-8f2ce816-5df4-44a5-958c-f7f9d6dabdce)
+
+
+
+## Installation
+- run `pnpm install` after cloning this repository
+
+
 
 ## Run in local development environment
 
 1. Run [**PAPRIKA WEB**](https://github.com/Rakuten-MTSD-PAIS/paprika_web) dev server locally.
-    Run `npm run watch` or `npm run watch:local` (from root directory of paprika web)
+    Run `pnpm run --filter @app/server dev:local` (from root directory of paprika web)
 
-    For details, please refer to [PAPRIKA WEB](https://github.com/Rakuten-MTSD-PAIS/paprika_web)
-
-2. Run `npm run dev-server` from root directory of [**PAPRIKA_OUTLOOK**](https://bitbucket.org/estmob/paprika_outlook/src/develop/), which is **THIS** project you're working on.
+2. Run `pnpm dev-server` from root directory of [**PAPRIKA_OUTLOOK**](https://bitbucket.org/estmob/paprika_outlook/src/develop/), which is **THIS** project you're working on.
 
 3. Follow one of the instructions that suits your desired task.
 
-- **To test React.js app in web browser**
+###    **To test in your Outlook Desktop Application**
 
-    - Visit "https://localhost:3000/outlook.html"
-    - **WARNING** : please make sure that you're using **HTTPS** protocol, not HTTP. Otherwise, you will not be able to test the add-in.
-
-- **To test in your Outlook Desktop Application**
-
-    1. Open your Outlook Desktop Application
-    2. Click `···` button on the top menu bar
-    3. Click `Get Add-ins` button
-    4. Click `My Add-ins` button on the left side menu
-    5. Scroll down to click `+ Add to Outlook` button
-        - Click `Add from File...` button
-    6. Upload `./manifest.xml`, which is located at the root directory
-    7. If successfully added, you can see `localhost Send Anywhere` button on clicking `···` button on the top menu bar when writing an email
+- If you satisfied prerequisites and custom add-in is successfully added, you can see `localhost Send Anywhere` button on clicking `···` button on the top menu bar when writing an email
 
 For details, please refer to : [Sideload Office Add-ins on Mac](https://learn.microsoft.com/en-us/office/dev/add-ins/testing/sideload-an-office-add-in-on-mac)
 
-- **To test in your Outlook Web Application**
+###    **To test in your Outlook Web Application**
+    
+- If you satisfied prerequisites and custom add-in is successfully added, you can see `localhost Send Anywhere` button on clicking `···` button on the top menu bar when writing an email
+- You can debug with developer tools on your browser.
+  
+- Please refer to : 
+[Sideload Office Add-ins in Office on the web for testing](https://docs.microsoft.com/en-us/office/dev/add-ins/testing/sideload-office-add-ins-for-testing)
 
-    - Please refer to : 
-    [Sideload Office Add-ins in Office on the web for testing](https://docs.microsoft.com/en-us/office/dev/add-ins/testing/sideload-office-add-ins-for-testing)
+- **To test bare React.js app in web browser**
+
+    - Visit "https://localhost:3000/outlook.html"
+
+
+
 
 
 ## Run in test, staging environment
-- Follow one of the instructions that suits your desired task.
+Follow one of the instructions below that suits your desired task.
 
-    - **To test React.js app in web browser**
-        - Visit https://test.send-anywhere.com/web/outlook/ for test environment
-        - Visit https://web-staging.send-anywhere.com/web/outlook/ for staging environment
+###     **To test in your Outlook Desktop or Web Application**
+- If you satisfied prerequisites and custom add-in is successfully added, you can see `Test(or Staging) Send Anywhere` button on clicking `···` button on the top menu bar when writing an email
 
-- **To test in your Outlook Desktop Application**
-
-    1. Folow steps 1~5 of 'To test in your Outlook Desktop Application' under step 3 of [Run in local development environment](#run-in-local-development-environment)
-    2. **Upload `./manifest/manifest-staging.xml` for staging environment, `./manifest/manifest-test.xml` for test environment.**
-    3. If successfully added, you can see `Test(or Staging) Send Anywhere` button on clicking `···` button on the top menu bar when writing an email
-    
-    For details, please refer to [Sideload Office Add-ins on Mac](https://learn.microsoft.com/en-us/office/dev/add-ins/testing/sideload-an-office-add-in-on-mac)
-
-- **To test in your Outlook Web Application**
-
-    - Please refer to 
-    [Sideload Office Add-ins in Office on the web for testing](https://docs.microsoft.com/en-us/office/dev/add-ins/testing/sideload-office-add-ins-for-testing)
+###     **To test React.js app in web browser**
+- Visit https://test.send-anywhere.com/web/outlook/ for test environment
+- Visit https://web-staging.send-anywhere.com/web/outlook/ for staging environment
 
 ## Build
 
-- To be updated
+- Run `pnpm build` to build in production mode.
+- Run `pnpm build:dev` to build in development mode.
 
 ## Deployment
 
-- To be updated
+- To be updated (push to release,,)
+- Please refer to .yml files at /.github/workflows
 
 ## Notes
+
+- According to [Outlook Add-in Docs](https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/outlook-quickstart?tabs=yeomangenerator), Office Add-ins should use HTTPS, not HTTP, even while you're developing. So please make sure that you're using **HTTPS** protocol, not HTTP. Otherwise, you will not be able to test the add-in.
+    - Please refer to `./webpack.config.js` for https configuration in development environment.
 
 - Every feature of send-anywhere Outlook add-in works properly inside Outlook web/desktop application.
 
@@ -79,6 +107,9 @@ For details, please refer to : [Sideload Office Add-ins on Mac](https://learn.mi
     - For example, if you visit https://send-anywhere.com/web/outlook/ in web browser, social login will not work.
 
 - Adding add-ins to Outlook web application seems to be not supported as of now.
+
+## References
+- 
 
 ## TODO
 
