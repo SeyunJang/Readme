@@ -34,8 +34,6 @@
     2. Select `My add-ins`
     3. In the Custom Addins section, select Add a custom add-in, then choose `Add from file`
     4. Upload `manifest*.xml` file corresponding to desired environment. This is specified in [Prerequisites](#prerequisites).
-    
-    For details, please refer to [Using add-ins in Outlook on the web](https://support.microsoft.com/en-us/office/using-add-ins-in-outlook-on-the-web-8f2ce816-5df4-44a5-958c-f7f9d6dabdce)
 
 
 
@@ -49,7 +47,7 @@
 1. Run [**PAPRIKA WEB**](https://github.com/Rakuten-MTSD-PAIS/paprika_web) dev server locally.
     Run `pnpm run --filter @app/server dev:local` (from root directory of paprika web)
 
-2. Run `pnpm dev-server` from root directory of [**PAPRIKA_OUTLOOK**](https://bitbucket.org/estmob/paprika_outlook/src/develop/), which is **THIS** project you're working on.
+2. Run `pnpm dev-server` from root directory of [**PAPRIKA_OUTLOOK**](https://github.com/Rakuten-MTSD-PAIS/paprika_outlook), which is **THIS** project you're working on.
 
 3. Follow one of the instructions that suits your desired task.
 
@@ -57,20 +55,14 @@
 
 - If you satisfied prerequisites and custom add-in is successfully added, you can see `localhost Send Anywhere` button on clicking `···` button on the top menu bar when writing an email
 
-For details, please refer to : [Sideload Office Add-ins on Mac](https://learn.microsoft.com/en-us/office/dev/add-ins/testing/sideload-an-office-add-in-on-mac)
-
 ###    **To test in your Outlook Web Application**
     
 - If you satisfied prerequisites and custom add-in is successfully added, you can see `localhost Send Anywhere` button on clicking `···` button on the top menu bar when writing an email
 - You can debug with developer tools on your browser.
-  
-- Please refer to : 
-[Sideload Office Add-ins in Office on the web for testing](https://docs.microsoft.com/en-us/office/dev/add-ins/testing/sideload-office-add-ins-for-testing)
 
 - **To test bare React.js app in web browser**
 
     - Visit "https://localhost:3000/outlook.html"
-
 
 
 
@@ -109,7 +101,9 @@ Follow one of the instructions below that suits your desired task.
 - Adding add-ins to Outlook web application seems to be not supported as of now.
 
 ## References
-- 
+- [Using add-ins in Outlook on the web](https://support.microsoft.com/en-us/office/using-add-ins-in-outlook-on-the-web-8f2ce816-5df4-44a5-958c-f7f9d6dabdce)
+- [Sideload Office Add-ins in Office on the web for testing](https://docs.microsoft.com/en-us/office/dev/add-ins/testing/sideload-office-add-ins-for-testing)
+- [Sideload Office Add-ins on Mac](https://learn.microsoft.com/en-us/office/dev/add-ins/testing/sideload-an-office-add-in-on-mac)
 
 ## TODO
 
