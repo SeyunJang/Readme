@@ -1,3 +1,3 @@
 # README
 
-## README files for Paprika web, outlook, extension, etc.
+**Repository for README.md files for Paprika web, outlook, extension, etc.**
