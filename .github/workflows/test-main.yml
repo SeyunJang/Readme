@@ -26,3 +26,8 @@ jobs:
 
             - name: Composite Test
               uses: ./.github/actions/set-common-env-composite/
+
+            - name: see if Composite Test done well
+              run: |
+                echo "${{ env.CODE_LANGUAGE }}, ${{ env.SERVICE_NAME }}"
+                echo "Composite Test done well"
