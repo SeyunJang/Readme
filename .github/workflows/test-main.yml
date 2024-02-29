@@ -16,7 +16,7 @@ jobs:
     steps:
         - name: see if Hoolah done well
           run: |
-            echo {{$GITHUB_ENV.CODE_LANGUAGE}}, {{$GITHUB_ENV.SERVICE_NAME}}
+            echo "{{$GITHUB_ENV.CODE_LANGUAGE}}, {{$GITHUB_ENV.SERVICE_NAME}}"
             echo "Hoolah done well"
     # runs-on: ubuntu-latest
     # steps:

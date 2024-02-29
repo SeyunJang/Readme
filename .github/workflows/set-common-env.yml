@@ -21,4 +21,4 @@ jobs:
           fi
           
       - name: Check if completed properly
-        run: echo {{$GITHUB_ENV.CODE_LANGUAGE}}, {{$GITHUB_ENV.SERVICE_NAME}}
+        run: echo "{{$GITHUB_ENV.CODE_LANGUAGE}}, {{$GITHUB_ENV.SERVICE_NAME}}"
