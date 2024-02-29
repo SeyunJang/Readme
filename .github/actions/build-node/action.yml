@@ -1,0 +1,15 @@
+name: Node Build
+
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        echo "Node Built Well?"
+
+
+
+# aws codeartifact login --tool npm --domain rakuten-drive --repository rakuten-drive-node-common --namespace @rakuten --region ap-northeast-1
+# npm install --also=dev
+# npm run clean
+# npm run build:app
+# npm ci --only=production

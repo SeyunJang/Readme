@@ -1,0 +1,7 @@
+name: Go Build
+
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        echo "Go Built Well?"
