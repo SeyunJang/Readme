@@ -21,4 +21,4 @@ jobs:
           fi
           
       - name: Check if completed properly
-        run: echo "{{$env.CODE_LANGUAGE}}, {{$env.SERVICE_NAME}}"
+        run: echo "${{ env.CODE_LANGUAGE }}, ${{ env.SERVICE_NAME }}"

@@ -16,7 +16,7 @@ jobs:
     steps:
         - name: see if Hoolah done well
           run: |
-            echo "{{$env.CODE_LANGUAGE}}, {{$env.SERVICE_NAME}}"
+            echo "${{ env.CODE_LANGUAGE }}, ${{ env.SERVICE_NAME }}"
             echo "Hoolah done well"
     # runs-on: ubuntu-latest
     # steps:
