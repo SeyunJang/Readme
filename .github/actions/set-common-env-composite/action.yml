@@ -5,10 +5,12 @@ runs:
     using: "composite"
     steps:
       - name: Set SERVICE_NAME variable
+        shell: bash
         run: echo "SERVICE_NAME=$(echo ${{ github.repository }} | cut -d'-' -f5- | sed 's/-api//g')" >> $GITHUB_ENV
     #   - name: checkout repo
     #     uses: actions/checkout@v4.1.1
       - name: Detect repository language
+        shell: bash
         run: |
           if [ -e package.json ]; then
             echo "CODE_LANGUAGE=nodejs" >> $GITHUB_ENV
@@ -19,4 +21,5 @@ runs:
           fi
           
       - name: Check if completed properly
+        shell: bash
         run: echo "${{ env.CODE_LANGUAGE }}, ${{ env.SERVICE_NAME }}"
