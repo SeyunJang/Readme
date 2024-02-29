@@ -4,5 +4,19 @@ description: Set common environment variables using composite action
 runs:
     using: "composite"
     steps:
-        - run: echo "Setting common environment variables"
-          shell: bash
+      - name: Set SERVICE_NAME variable
+        run: echo "SERVICE_NAME=$(echo ${{ github.repository }} | cut -d'-' -f5- | sed 's/-api//g')" >> $GITHUB_ENV
+    #   - name: checkout repo
+    #     uses: actions/checkout@v4.1.1
+      - name: Detect repository language
+        run: |
+          if [ -e package.json ]; then
+            echo "CODE_LANGUAGE=nodejs" >> $GITHUB_ENV
+          elif [ -e go.mod ]; then
+            echo "CODE_LANGUAGE=golang" >> $GITHUB_ENV
+          else
+            echo "Error : Unknown environment, this should never happen"
+          fi
+          
+      - name: Check if completed properly
+        run: echo "${{ env.CODE_LANGUAGE }}, ${{ env.SERVICE_NAME }}"
