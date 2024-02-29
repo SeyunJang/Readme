@@ -1,23 +1,10 @@
 name: Sample Test Workflow
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
 
 jobs:
-#   Hoolah:
-#     uses: ./.github/workflows/set-common-env.yml
-  
-#   Hello:
-#     runs-on: ubuntu-latest
-#     needs: Hoolah
-#     steps:
-#         - name: see if Hoolah done well
-#           run: |
-#             echo "${{ env.CODE_LANGUAGE }}, ${{ env.SERVICE_NAME }}"
-#             echo "Hoolah done well"
     Composite-Test:
         runs-on: ubuntu-latest
         steps:
