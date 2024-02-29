@@ -25,4 +25,4 @@ jobs:
               uses: actions/checkout@v4.1.1
 
             - name: Composite Test
-              uses: ./.github/actions/set-common-env-composite.yml
+              uses: ./.github/actions/set-common-env-composite/
