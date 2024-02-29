@@ -5,6 +5,7 @@ runs:
   steps:
     - run: |
         echo "Node Built Well?"
+      shell: bash
 
 
 

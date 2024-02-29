@@ -5,3 +5,4 @@ runs:
   steps:
     - run: |
         echo "Go Built Well?"
+      shell: bash
