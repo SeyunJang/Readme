@@ -23,5 +23,6 @@ jobs:
         steps:
             - name: Checkout Repository
               uses: actions/checkout@v4.1.1
+
             - name: Composite Test
-              uses: ./.github/workflows/set-common-env-composite.yml
+              uses: ./.github/actions/set-common-env-composite.yml

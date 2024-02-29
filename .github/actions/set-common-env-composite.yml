@@ -1,0 +1,7 @@
+name: Set-Common-Env-Composite
+description: Set common environment variables using composite action
+
+runs:
+    using: "composite"
+    steps:
+        - run: echo "Setting common environment variables"
