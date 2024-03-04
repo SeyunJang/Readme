@@ -13,6 +13,8 @@ jobs:
 
             - name: Composite Test
               uses: ./.github/actions/set-common-env/
+              with:
+                RD_AWS_BOT_ROLE: ${{ secrets.RD_AWS_BOT_ROLE }}
 
             - name: Node Build
               if: ${{ env.CODE_LANGUAGE == 'nodejs' }}
