@@ -19,9 +19,9 @@ runs:
             echo "Error : Unknown environment, this should never happen"
           fi
 
-      - name: can show secrets?
-        shell: bash
-        run: echo "secrets.RD_AWS_BOT_ROLE=${{ secrets.RD_AWS_BOT_ROLE }}"
+      # - name: can show secrets?
+      #   shell: bash
+      #   run: echo "secrets.RD_AWS_BOT_ROLE=${{ secrets.RD_AWS_BOT_ROLE }}"
           
       # - name: Configure AWS credentials
       #   uses: aws-actions/configure-aws-credentials@v2

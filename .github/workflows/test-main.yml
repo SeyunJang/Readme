@@ -14,6 +14,10 @@ jobs:
             - name: Composite Test
               uses: ./.github/actions/set-common-env/
 
+            - name: can show secrets?
+              shell: bash
+              run: echo "secrets.RD_AWS_BOT_ROLE=${{ secrets.RD_AWS_BOT_ROLE }}"
+
             # - name: see if Composite Test done well
             #   run: |
             #     echo "${{ env.CODE_LANGUAGE }}, ${{ env.SERVICE_NAME }}"
