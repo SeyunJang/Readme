@@ -25,6 +25,7 @@ runs:
           fi
       
       - name: see inputs
+        shell: bash
         run: |
           echo "RD_AWS_BOT_ROLE: ${{ inputs.RD_AWS_BOT_ROLE }}"
           echo "SERVICE_NAME: ${{ env.SERVICE_NAME }}"
