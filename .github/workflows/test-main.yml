@@ -14,15 +14,6 @@ jobs:
             - name: Composite Test
               uses: ./.github/actions/set-common-env/
 
-            - name: can show secrets?
-              shell: bash
-              run: echo "secrets.RD_AWS_BOT_ROLE=${{ secrets.RD_AWS_BOT_ROLE }}"
-
-            # - name: see if Composite Test done well
-            #   run: |
-            #     echo "${{ env.CODE_LANGUAGE }}, ${{ env.SERVICE_NAME }}"
-            #     echo "Composite Test done well"
-
             - name: Node Build
               if: ${{ env.CODE_LANGUAGE == 'nodejs' }}
               uses: ./.github/actions/build-node/

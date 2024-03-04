@@ -1,6 +1,11 @@
 name: Set Common Env
 description: Set common environment variables using composite action
 
+inputs:
+  RD_AWS_BOT_ROLE:  
+    description: 'RD_AWS_BOT_ROLE'
+    required: true
+
 runs:
     using: "composite"
     steps:
@@ -18,13 +23,15 @@ runs:
           else
             echo "Error : Unknown environment, this should never happen"
           fi
-
-      # - name: can show secrets?
-      #   shell: bash
-      #   run: echo "secrets.RD_AWS_BOT_ROLE=${{ secrets.RD_AWS_BOT_ROLE }}"
-          
+      
+      - name: see inputs
+        run: |
+          echo "RD_AWS_BOT_ROLE: ${{ inputs.RD_AWS_BOT_ROLE }}"
+          echo "SERVICE_NAME: ${{ env.SERVICE_NAME }}"
+          echo "CODE_LANGUAGE: ${{ env.CODE_LANGUAGE }}"
+      
       # - name: Configure AWS credentials
       #   uses: aws-actions/configure-aws-credentials@v2
       #   with:
-      #     role-to-assume: ${{ secrets.RD_AWS_BOT_ROLE }}
+      #     role-to-assume: ${{ inputs.RD_AWS_BOT_ROLE }}
       #     aws-region: ap-northeast-1
