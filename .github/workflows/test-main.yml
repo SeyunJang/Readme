@@ -5,7 +5,15 @@ on:
     branches: [ "main" ]
 
 jobs:
+    Heyy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: check repo name
+              run: |
+                echo github.repositoryname : ${{ github.repository }}
+                
     Composite-Test:
+        needs: Heyy
         runs-on: ubuntu-latest
         steps:
             - name: Checkout Repository
