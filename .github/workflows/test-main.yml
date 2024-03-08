@@ -18,7 +18,7 @@ jobs:
               run: |
                 echo ${{ env.EXCEPTION_LIST }}
             - name: exist?
-              if: ${{ contains(${{ env.EXCEPTION_LIST }}, "Rakuten-MTSD-PAIS/rakuten-drive-cloud-transfer") }}
+              if: ${{ contains( env.EXCEPTION_LIST, "Rakuten-MTSD-PAIS/rakuten-drive-cloud-transfer" ) }}
               run: |
                 echo Ohyeah
             # - name: notexist?
