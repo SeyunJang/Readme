@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 env:
-  EXCEPTION_LIST: ( "Rakuten-MTSD-PAIS/rakuten-drive-cloud-transfer" "Rakuten-MSTD-PAIS/rakuten-drive-billing" "Rakuten-MSTD-PAIS/rakuten-drive-queue-api" "Rakuten-MSTD-PAIS/rakuten-drive-email-search" "Rakuten-MSTD-PAIS/rakuten-drive-microsoft" "Rakuten-MTSD-PAIS/rakuten-drive-common" "Rakuten-MTSD-PAIS/rakuten-drive-fe-b2b" "Rakuten-MTSD-PAIS/rakutenDrive-Devops" "Rakuten-MTSD-PAIS/forest-transfer" "Rakuten-MTSD-PAIS/forest-storage" "Rakuten-MTSD-PAIS/rakuten-drive-api-specs" "Rakuten-MTSD-PAIS/rakuten-drive-admin" "Rakuten-MTSD-PAIS/rakutenDrive-GitOps" )
+  EXCEPTION_LIST: "Rakuten-MTSD-PAIS/rakuten-drive-cloud-transfer Rakuten-MSTD-PAIS/rakuten-drive-billing Rakuten-MSTD-PAIS/rakuten-drive-queue-api Rakuten-MSTD-PAIS/rakuten-drive-email-search Rakuten-MSTD-PAIS/rakuten-drive-microsoft Rakuten-MTSD-PAIS/rakuten-drive-common Rakuten-MTSD-PAIS/rakuten-drive-fe-b2b Rakuten-MTSD-PAIS/rakutenDrive-Devops Rakuten-MTSD-PAIS/forest-transfer Rakuten-MTSD-PAIS/forest-storage Rakuten-MTSD-PAIS/rakuten-drive-api-specs Rakuten-MTSD-PAIS/rakuten-drive-admin Rakuten-MTSD-PAIS/rakutenDrive-GitOps"
 
 jobs:
     Heyy:
@@ -17,6 +17,14 @@ jobs:
             - name: show Exception list
               run: |
                 echo ${{ env.EXCEPTION_LIST }}
+            - name: exist?
+              if: ${{ contains(${{ env.EXCEPTION_LIST }}, "Rakuten-MTSD-PAIS/rakuten-drive-cloud-transfer") }}
+              run: |
+                echo Ohyeah
+            # - name: notexist?
+            #   if: contains(${{ env.EXCEPTION_LIST}}, "Rakuten-MTSD-PAIS/rakuten-drive-cloud-transfer")
+            #   run: |
+            #     echo YES
                 
     Composite-Test:
         needs: Heyy
