@@ -16,7 +16,7 @@ jobs:
                 echo github.repositoryname : ${{ github.repository }}
             - name: show Exception list
               run: |
-                echo ${{ env.EXCEPTION_LIST}}
+                echo ${{ env.EXCEPTION_LIST }}
                 
     Composite-Test:
         needs: Heyy
