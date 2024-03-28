@@ -7,10 +7,11 @@ on:
 env:
   EXCEPTION_LIST: "Rakuten-MTSD-PAIS/rakuten-drive-cloud-transfer Rakuten-MSTD-PAIS/rakuten-drive-billing Rakuten-MSTD-PAIS/rakuten-drive-queue-api Rakuten-MSTD-PAIS/rakuten-drive-email-search Rakuten-MSTD-PAIS/rakuten-drive-microsoft Rakuten-MTSD-PAIS/rakuten-drive-common Rakuten-MTSD-PAIS/rakuten-drive-fe-b2b Rakuten-MTSD-PAIS/rakutenDrive-Devops Rakuten-MTSD-PAIS/forest-transfer Rakuten-MTSD-PAIS/forest-storage Rakuten-MTSD-PAIS/rakuten-drive-api-specs Rakuten-MTSD-PAIS/rakuten-drive-admin Rakuten-MTSD-PAIS/rakutenDrive-GitOps"
   A_LIST: "YEAH"
-  COMBINE: "${{env.EXCEPTION_LIST}} ${{env.A_LIST}}"
   
 jobs:
     Heyy:
+        env:
+          COMBINE: "${{env.EXCEPTION_LIST}} ${{env.A_LIST}}"
         runs-on: ubuntu-latest
         steps:
             - name: check repo name
@@ -18,7 +19,7 @@ jobs:
                 echo github.repositoryname : ${{ github.repository }}
             - name: show Exception list
               run: |
-                echo ${{ env.EXCEPTION_LIST }}
+                echo ${{ env.COMBINE }}
             - name: exist?
               if: ${{ !contains( env.EXCEPTION_LIST, github.repository ) }}
               run: |
