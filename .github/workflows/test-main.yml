@@ -10,8 +10,8 @@ env:
   
 jobs:
     Heyy:
-        env:
-          COMBINE: "${{env.EXCEPTION_LIST}} ${{env.A_LIST}}"
+        # env:
+        #   COMBINE: "${{env.EXCEPTION_LIST}} ${{env.A_LIST}}"
         runs-on: ubuntu-latest
         steps:
             - name: check repo name
@@ -19,7 +19,8 @@ jobs:
                 echo github.repositoryname : ${{ github.repository }}
             - name: show Exception list
               run: |
-                echo ${{ env.COMBINE }}
+                echo ${{ env.A_LIST }}
+                
             - name: exist?
               if: ${{ !contains( env.EXCEPTION_LIST, github.repository ) }}
               run: |
