@@ -17,8 +17,8 @@ jobs:
                 echo github.repositoryname : ${{ github.repository }}
             - name: show Exception list
               run: |
-                echo "${{env.EXCEPTION_LIST}} ${{A_LIST}}"
-                echo ${{ contains( "${{env.EXCEPTION_LIST}} ${{A_LIST}}", "YEAH" }}
+                echo "${{env.EXCEPTION_LIST}} ${{env.A_LIST}}"
+                echo ${{ contains( "${{env.EXCEPTION_LIST}} ${{env.A_LIST}}", "YEAH" }}
                 
             - name: exist?
               if: ${{ !contains( env.EXCEPTION_LIST, github.repository ) }}
