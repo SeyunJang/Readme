@@ -34,15 +34,15 @@ jobs:
               uses: actions/checkout@v4.1.1
 
             - name: Composite Test
-              uses: .github/actions/set-common-env/
+              uses: ./.github/actions/set-common-env/
               with:
                 RD_AWS_BOT_ROLE: ${{ secrets.RD_AWS_BOT_ROLE }}
 
             - name: Node Build
               if: ${{ env.CODE_LANGUAGE == 'nodejs' }}
-              uses: .github/actions/build-node/
+              uses: ./.github/actions/build-node/
 
             - name: Go Build
               if: ${{ env.CODE_LANGUAGE == 'golang' }}
-              uses: .github/actions/build-go/
+              uses: ./.github/actions/build-go/
               
