@@ -36,10 +36,6 @@ jobs:
             - name: Checkout Repository
               uses: actions/checkout@v4.1.1
 
-            - name: print combine env var
-              run: |
-                echo "${{ env.COMBINE }}"
-
             - name: Composite Test
               uses: ./.github/actions/set-common-env/
               with:
