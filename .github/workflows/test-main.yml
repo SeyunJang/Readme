@@ -21,7 +21,7 @@ jobs:
                 echo ${{ contains( "env.EXCEPTION_LIST env.A_LIST", "YEAH" }}
                 
             - name: exist?
-              if: ${{ !contains( env.EXCEPTION_LIST, github.repository ) }}
+              if: always() && ${{ !contains( env.A_LIST, "YEAH" ) }}
               run: |
                 echo Ohyeah
             # - name: notexist?
