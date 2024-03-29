@@ -20,7 +20,7 @@ jobs:
                 echo "${{env.EXCEPTION_LIST}} ${{env.A_LIST}}"
                 
             - name: exist?
-              if: always() && ${{ !contains( env.A_LIST, "YEAH" ) }}
+              if: always() && !contains( env.A_LIST, "YEAH" )
               run: |
                 echo Ohyeah
             # - name: notexist?
