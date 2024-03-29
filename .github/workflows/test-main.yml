@@ -18,7 +18,6 @@ jobs:
             - name: show Exception list
               run: |
                 echo "${{env.EXCEPTION_LIST}} ${{env.A_LIST}}"
-                echo ${{ contains( "env.EXCEPTION_LIST env.A_LIST", "YEAH" }}
                 
             - name: exist?
               if: always() && ${{ !contains( env.A_LIST, "YEAH" ) }}
