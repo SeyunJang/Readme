@@ -11,15 +11,16 @@ env:
 jobs:
     Heyy:
         runs-on: ubuntu-latest
-        env:
-          TMP: "${{ env.EXCEPTION_LIST }} ${{ env.A_LIST }}"
         steps:
             - name: check repo name
               run: |
                 echo github.repositoryname : ${{ github.repository }}
             - name: show Exception list
               run: |
-                echo "${{env.EXCEPTION_LIST}} ${{env.A_LIST}}"
+                echo "TMP=${{ env.EXCEPTION_LIST }} ${{ env.A_LIST }}" >> $GITHUB_ENV
+            - name: show TMP
+              run: |
+                echo ${{ env.TMP }}
                 
             - name: exist?
               if: always() && contains( env.A_LIST, 'YEAH' )
