@@ -12,7 +12,7 @@ jobs:
     Heyy:
         runs-on: ubuntu-latest
         env:
-          TMP: "$EXCEPTION_LIST $A_LIST"
+          TMP: "${{ env.EXCEPTION_LIST }} ${{ env.A_LIST }}"
         steps:
             - name: check repo name
               run: |
