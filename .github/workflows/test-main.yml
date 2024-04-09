@@ -11,6 +11,7 @@ env:
 jobs:
     Heyy:
         runs-on: ubuntu-latest
+        if: contains( env.A_LIST, "YEAH" )
         steps:
             - name: check repo name
               run: |
