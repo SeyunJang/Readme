@@ -22,7 +22,7 @@ jobs:
               run: |
                 echo ${{ env.TMP }}
                 
-            - name: exist?
+            - name: exist??
               if: always() && contains( env.A_LIST, 'YEAH' )
               run: |
                 echo Ohyeah
